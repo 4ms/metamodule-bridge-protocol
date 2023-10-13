@@ -1,7 +1,20 @@
+enum Phase : byte {REQUEST = 0, ANSWER}
+
+struct PresenceDetection
+{
+    phase: Phase;
+}
+
+struct Switch
+{
+    state: bool;
+}
+
+union AnyMessage {PresenceDetection, Switch}
+
 table Message
 {
-    state:bool;
-    
+    content:AnyMessage;    
 }
 
 root_type Message;
