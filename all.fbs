@@ -10,11 +10,27 @@ struct Switch
     state: bool;
 }
 
-union AnyMessage {PresenceDetection, Switch}
+table PatchNames
+{
+    names:[string];
+}
+
+table UploadPatch
+{
+    content:[ubyte];
+}
+
+table Result
+{
+    success: bool;
+    message: string;
+}
+
+union AnyMessage {Switch, PresenceDetection, UploadPatch, PatchNames, Result}
 
 table Message
 {
-    content:AnyMessage;    
+    content: AnyMessage;
 }
 
 root_type Message;
