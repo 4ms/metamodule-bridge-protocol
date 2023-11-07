@@ -18,7 +18,7 @@ table PatchInfo
     timestamp: uint;
 }
 
-enum StorateLocation : byte {USB, SDCARD, FLASH}
+enum StorageLocation : byte {USB, SDCARD, FLASH}
 
 table Patches
 {
@@ -30,6 +30,7 @@ table Patches
 table UploadPatch
 {
     content:[ubyte];
+    destination: StorageLocation;
 }
 
 table Result
