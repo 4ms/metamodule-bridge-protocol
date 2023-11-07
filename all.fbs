@@ -10,9 +10,21 @@ struct Switch
     state: bool;
 }
 
-table PatchNames
+table PatchInfo
 {
-    names:[string];
+    name: string;
+    filename: string;
+    size: uint;
+    timestamp: uint;
+}
+
+enum StorateLocation : byte {USB, SDCARD, FLASH}
+
+table Patches
+{
+    usb:[PatchInfo];
+    flash:[PatchInfo];
+    sdcard:[PatchInfo];
 }
 
 table UploadPatch
@@ -26,7 +38,7 @@ table Result
     message: string;
 }
 
-union AnyMessage {Switch, PresenceDetection, UploadPatch, PatchNames, Result}
+union AnyMessage {Switch, PresenceDetection, UploadPatch, Patches, Result}
 
 table Message
 {
