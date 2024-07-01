@@ -1,13 +1,6 @@
-enum Phase : byte {REQUEST = 0, ANSWER}
-
-struct PresenceDetection
+struct Heartbeat
 {
-    phase: Phase;
-}
-
-struct Switch
-{
-    state: bool;
+    _dummy: bool;
 }
 
 table PatchInfo
@@ -40,7 +33,7 @@ table Result
     message: string;
 }
 
-union AnyMessage {Switch, PresenceDetection, UploadPatch, Patches, Result}
+union AnyMessage {Heartbeat, UploadPatch, Patches, Result}
 
 table Message
 {
