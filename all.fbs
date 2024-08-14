@@ -11,13 +11,20 @@ table PatchInfo
     timestamp: uint;
 }
 
+table DirInfo
+{
+    name: string;
+    subdirs:[DirInfo];
+    files:[PatchInfo];
+}
+
 enum StorageLocation : byte {USB, SDCARD, FLASH}
 
 table Patches
 {
-    usb:[PatchInfo];
-    flash:[PatchInfo];
-    sdcard:[PatchInfo];
+    usb:DirInfo;
+    flash:DirInfo;
+    sdcard:DirInfo;
 }
 
 table UploadPatch
@@ -25,6 +32,7 @@ table UploadPatch
     content:[ubyte];
     destination: StorageLocation;
     filename: string;
+    subfolder: string;
 }
 
 table Result
