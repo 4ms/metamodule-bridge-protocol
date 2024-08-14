@@ -18,8 +18,6 @@ table DirInfo
     files:[PatchInfo];
 }
 
-enum StorageLocation : byte {USB, SDCARD, FLASH}
-
 table Patches
 {
     usb:DirInfo;
@@ -30,9 +28,8 @@ table Patches
 table UploadPatch
 {
     content:[ubyte];
-    destination: StorageLocation;
+    volume: string;
     filename: string;
-    subfolder: string;
 }
 
 table Result
