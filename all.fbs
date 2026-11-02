@@ -49,6 +49,7 @@ table Status
     module_loads_valid: bool;
     module_cores: [ubyte];
     core_loads: [ushort];
+    patch_fingerprint: uint;
 }
 
 union AnyMessage {Heartbeat, UploadPatch, Patches, Result, Status}
