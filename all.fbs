@@ -30,15 +30,31 @@ table UploadPatch
     content:[ubyte];
     volume: string;
     filename: string;
+    load_after_save: bool;
 }
 
 table Result
 {
     success: bool;
     message: string;
+    load_requested: bool;
 }
 
-union AnyMessage {Heartbeat, UploadPatch, Patches, Result}
+table Status
+{
+    cpu_load: ubyte;
+    playing: bool;
+    include_modules: bool;
+    patch_name: string;
+    module_loads: [ushort];
+    overhead: ushort;
+    module_loads_valid: bool;
+    module_cores: [ubyte];
+    core_loads: [ushort];
+    patch_fingerprint: uint;
+}
+
+union AnyMessage {Heartbeat, UploadPatch, Patches, Result, Status}
 
 table Message
 {
