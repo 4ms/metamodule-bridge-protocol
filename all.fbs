@@ -30,6 +30,7 @@ table UploadPatch
     content:[ubyte];
     volume: string;
     filename: string;
+    load_after_save: bool;
 }
 
 table Result
