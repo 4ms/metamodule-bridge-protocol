@@ -37,6 +37,7 @@ table Result
 {
     success: bool;
     message: string;
+    load_requested: bool;
 }
 
 table Status
