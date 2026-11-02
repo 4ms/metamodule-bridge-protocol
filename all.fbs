@@ -38,7 +38,13 @@ table Result
     message: string;
 }
 
-union AnyMessage {Heartbeat, UploadPatch, Patches, Result}
+table Status
+{
+    cpu_load: ubyte;
+    playing: bool;
+}
+
+union AnyMessage {Heartbeat, UploadPatch, Patches, Result, Status}
 
 table Message
 {
